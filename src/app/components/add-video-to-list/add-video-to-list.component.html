@@ -1,0 +1,44 @@
+<button class="cta-button text-appear" [disabled]="showHideVideoForm" (click)="showHideVideoForm=!showHideVideoForm">Add Video to Playlist</button>
+
+  <div  class='add-form-container' *ngIf="showHideVideoForm">
+  <form class='form-container form-box' [formGroup]="addVideoForm" (ngSubmit)="onSubmit()">
+    <div class="float-label">
+    <input type='text' id='videoTitle' formControlName="videoTitle" placeholder="Add video title" (blur)="checkInputFocus($event)" autocomplete="off"/>
+    <label #inputTitleLabel for="videoTitle" id="videoTitleLabel">Video Title</label>
+    <div *ngIf="!isValidInput">
+      <span class='error' *ngIf="addVideoForm.controls['videoTitle'].invalid && addVideoForm.controls['videoTitle'].touched">Enter a valid title for video</span>
+    </div>
+    </div>
+    <div class="float-label">
+      <input type='text' id='videoArtist' formControlName="videoArtist" (blur)="checkInputFocus($event)" placeholder="Add video Artist" autocomplete="off"/>
+      <label #inputArtistLabel for="videoArtist" id="videoArtistLabel">Artist Name</label>
+      <div *ngIf="!isValidInput">
+        <span  class='error' *ngIf=" addVideoForm.controls['videoArtist'].invalid && addVideoForm.controls['videoArtist'].touched">Enter a valid artist name for video</span>
+      </div>
+    </div>
+
+    <div class="float-label">
+      <input type='text' id='videoUrl' formControlName="videoUrl" (blur)="checkInputFocus($event)" placeholder="Add video URL" autocomplete="off"/>
+      <label #inputUrlLabel for="videoUrl" id="videoURLLabel">Video Link</label>
+      <div *ngIf="!isValidInput">
+        <span  class='error' *ngIf="addVideoForm.controls['videoUrl'].invalid && addVideoForm.controls['videoUrl'].touched">Enter a valid URL for video</span>
+      </div>
+    </div>
+    <div>
+
+      <label #inputUrlLabel for="videoPlaylist" id="videoPlaylistLabel" class="text-appear">Your Playlist</label>
+      <select id='video-to-playlist' type='text' id='videoPlaylist' formControlName="playlist" placeholder="Add video To Playlist">
+        <option [disabled]="true" >Add Video to Playlist</option>
+        <option *ngFor="let list of playlist">
+          {{list.name}}
+        </option>
+      </select>
+    </div>
+    <button class="cta-button submit-video-button text-appear" [disabled]="addVideoForm.invalid">Submit</button>
+    <button class="cta-button close-button" (click)="resetForm();showHideVideoForm=!showHideVideoForm;">Cancel</button>
+
+  </form>
+  </div>
+
+
+

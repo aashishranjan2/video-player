@@ -1,0 +1,30 @@
+<button id='create-playlist-button' class="cta-button text-appear" [disabled]="showHidePlaylist"  (click)="showHidePlaylist = !showHidePlaylist">Create PlayList</button>
+<div class='add-form-container' *ngIf="showHidePlaylist">
+  <form class="form-container form-box" [formGroup]="playlistForm" (ngSubmit)="onSubmit()">
+    <div class="float-label">
+      <input type='text' id='playListName' formControlName="playListName" (blur)="checkInputFocus($event)" placeholder="Name your play list.." maxlength="35" autocomplete="off"/>
+      <label #inputPlaylistNameLabel for="playListName" id="playListNameLabel">Play List Name</label>
+      <div *ngIf="!isValidInput">
+          <span class='error' *ngIf="playlistForm.controls['playListName'].invalid">Enter a valid play list name</span>
+      </div>
+    </div>
+    <div  [ngClass]="{'error':playlistForm.controls['videos'].invalid}">
+      <label #inputVideosLabel for="videosToPlaylist" id="videosLabel" class="text-appear">Add Videos to your Playlist</label>
+      <ul class='videos-list' id='videosToPlaylist' formArrayName="videos" placeholder="Add videos To Playlist">
+        <li class="videos-list-container text-appear" *ngFor="let video of allVideosFromPlayList.videos;let i=index">
+          <label>
+            <input formControlName="{{i}}" type="checkbox"/>
+            <span></span>
+          </label>
+          {{video.title}}
+        </li>
+      </ul>
+      <span  class='error' *ngIf="playlistForm.controls['videos'].invalid">Field is mandatory</span>
+    </div>
+    <button class="cta-button submit-playlist-button text-appear">Submit</button>
+    <button class="cta-button close-button text-appear" (click)="resetPlayListForm();showHidePlaylist=!playlistForm;">Cancel</button>
+
+  </form>
+
+</div>
+

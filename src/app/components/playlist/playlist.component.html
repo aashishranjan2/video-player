@@ -1,0 +1,23 @@
+<div class="playlist-container">
+  <header class="playlist-caption text-appear">Your PlayList!!</header>
+  <div>
+    <select #playListSelect>
+      <option class="playlist-name" *ngFor="let list of playlist">{{ list.name }}</option>
+    </select>
+  </div>
+  <span class="playList-pos">
+    <app-create-playlist (addPlaylist)="addNewPlaylist($event)"></app-create-playlist>
+  </span>
+  <app-add-video></app-add-video>
+  <div class="video-container">
+    <ul class="playlist" *ngFor="let list of choosenPlaylist">
+      <span class="playlist-caption text-appear">{{ list.name }}</span>
+      <div class="playlist-scroller">
+        <li class="video-from-playlist" *ngFor="let video of list.videos" (click)="playVideoFromPlaylist(video)">
+          <i class="far fa-play-circle"></i>
+          {{ video.title }}
+        </li>
+      </div>
+    </ul>
+  </div>
+</div>

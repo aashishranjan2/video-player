@@ -1,0 +1,205 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("assets/fonts/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url("assets/fonts/Roboto-Regular.ttf");
+}
+
+body {
+  font-family: Roboto-Regular;
+  margin: 0;
+  font-size: 16px;
+  background: #171616e0;
+}
+
+/*Main video-player container CSS*/
+.video-container {
+  grid-template-columns: 100%;
+  grid-auto-rows: auto;
+  margin: 1em;
+}
+
+/*Button Design CSS throughout app*/
+.cta-button {
+  background-color: #484949;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 4px;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Roboto-Bold;
+  padding: 0.5em;
+}
+
+/*Select design CSS throughout app*/
+select {
+  margin-bottom: 1em;
+  padding: 0 0.75em;
+  border: 0;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  border-radius: 0;
+  background: #cdcdcf;
+  min-height: 30px;
+  min-width: 50%;
+}
+select:focus,
+select:active {
+  outline: 0;
+  border-bottom-color: #484949;
+}
+
+/*Main Video tag CSS*/
+video {
+  width: 100%;
+  height: auto;
+}
+.video-playlist-container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+
+/*Css for Low resolution devices like Iphone,Ipad*/
+@media (min-width: 320px) and (max-width: 780px) {
+  .video-container {
+    grid-template-columns: 4fr;
+  }
+  .video-playlist-container {
+    grid-template-columns: 100%;
+  }
+}
+
+.cta-button:hover {
+  background-color: #fff;
+  color: #484949;
+  border: 1px solid #484949;
+}
+.cta-button:active {
+  position: relative;
+  top: 1px;
+}
+
+/*Input box design CSS throughout application*/
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/*Forms Design CSS throughout app*/
+.form-container {
+  display: grid;
+  margin: 1em;
+  grid-gap: 1em;
+}
+.form-box {
+  -webkit-box-shadow: 0px 1px 14px 2px #ccc;
+  -moz-box-shadow: 0px 1px 14px 2px #ccc;
+  box-shadow: 0px 1px 14px 2px #ccc;
+  padding: 1em;
+  border-radius: 4px;
+}
+.form-container select {
+  padding: 12px 20px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+/*Form close button CSS*/
+.close-button {
+  background: #ae2525;
+}
+
+/*Client Side Error CSS*/
+.error {
+  color: rgb(196, 11, 11);;
+}
+.error input[type="text"],
+.error input[type="text"]:focus {
+  border: 1px solid rgb(196, 11, 11);;
+}
+
+.close-button:hover {
+  background: #fff;
+  border: 1px solid rgb(196, 11, 11);;
+  color: rgb(196, 11, 11);
+}
+.add-form-container {
+  margin-top: 2em;
+  box-shadow: #f2f2f2;
+}
+
+/*Button on Disable CSS*/
+.cta-button:disabled {
+  background: linear-gradient(to bottom, #aca7a7 0%, #484949 100%);
+  pointer-events: none;
+}
+
+.text-appear {
+  color: #b6b5b5;
+}
+
+.playList-pos {
+  margin: 0 1em 0 0;
+}
+
+.float-label {
+  display: block;
+  position: relative;
+}
+.float-label label{
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  cursor: text;
+  font-size: 75%;
+  opacity: 1;
+  transition: all .5s;
+}
+.float-label select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.float-label input::-webkit-input-placeholder, .float-label select::-webkit-input-placeholder {
+  opacity: 1;
+  transition: all .2s;
+}
+.float-label input:-ms-input-placeholder, .float-label select:-ms-input-placeholder {
+  opacity: 1;
+  transition: all .5s;
+}
+.float-label input::-ms-input-placeholder, .float-label select::-ms-input-placeholder {
+  opacity: 1;
+  transition: all .5s;
+}
+.float-label input::placeholder, .float-label select::placeholder {
+  opacity: 1;
+  transition: all .5s;
+}
+.float-label input:placeholder-shown:not(:focus)::-webkit-input-placeholder, .float-label select:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+  opacity: 0;
+}
+.float-label input:placeholder-shown:not(:focus):-ms-input-placeholder, .float-label select:placeholder-shown:not(:focus):-ms-input-placeholder {
+  opacity: 0;
+}
+.float-label input:placeholder-shown:not(:focus)::-ms-input-placeholder, .float-label select:placeholder-shown:not(:focus)::-ms-input-placeholder {
+  opacity: 0;
+}
+
+.float-label input:placeholder-shown:not(:focus) + *, .float-label select:placeholder-shown:not(:focus) + * {
+  font-size: 1.25em;
+  opacity: .5;
+  top: .8em;
+  padding-left: .5em;
+}

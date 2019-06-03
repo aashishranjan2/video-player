@@ -1,0 +1,15 @@
+<div class="video-playlist-container">
+  <div class="play-list-container">
+  <app-playlist (playThisPlaylist)="playSelectedList($event)"(playSelectedVideo)="playSelectedVideoFromPlaylist($event)"></app-playlist>
+</div>
+  <div class="video-container">
+    <video #videoPlayer controls controlsList="nodownload" preload="metadata"></video>
+    <div class="video-info text-appear">
+      <span>Title : </span>
+      <span>{{ videoTitle }}</span
+      ><br />
+      <span>Artist : </span>
+      <span>{{ videoArtist }}</span>
+    </div>
+  </div>
+</div>
