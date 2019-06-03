@@ -7,8 +7,7 @@ import {PlaylistModel} from '../../models/playlist.model';
 
 @Component({
   selector: 'app-add-video',
-  templateUrl: './add-video-to-list.component.html',
-  styleUrls: ['./add-video-to-list.component.css']
+  templateUrl: './add-video-to-list.component.html'
 })
 export class AddVideoToListComponent implements OnInit, OnDestroy {
   playlist: PlaylistModel[] = [];
